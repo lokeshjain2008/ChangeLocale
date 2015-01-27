@@ -3,7 +3,7 @@
 
   "name": "changeLocale",
   "description": "This extension changes langauge for the angular-translate project..",
-  "version": "1.1",
+  "version": "1.2",
   "permissions": ["tabs"],	
   "browser_action": {
     "default_icon": "images/icon.png",
@@ -19,7 +19,7 @@
  "devtools_page": "devtools.html",
   "content_scripts": [{
 	  "matches": ["*://*/*"],
-	  "js": ["js_lib/angular.js","js/contentScript.js"]
+	  "js": ["js/contentScript.js"]
   	
   }],
   "permissions": [

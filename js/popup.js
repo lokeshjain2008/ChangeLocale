@@ -1,7 +1,10 @@
-window.onload = function() {
-    document.getElementById("ok").onclick = function() {
-        chrome.extension.sendMessage({
-            type: "changeLang"
-        });
-    }
-}
+(function() {
+  window.onload = function() {
+    return document.getElementById("ok").onclick = function() {
+      return chrome.extension.sendMessage({
+        type: 'changeLang'
+      });
+    };
+  };
+
+}).call(this);

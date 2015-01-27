@@ -1,5 +1,7 @@
-// listening for an event / one-time requests
-// coming from the popup
+
+/*
+
+
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     switch(request.type) {
         case 'changeLang':
@@ -17,3 +19,28 @@ var change_lang = function() {
         chrome.browserAction.setBadgeText({text: "Active!"});
     });
 }
+ */
+
+(function() {
+  var changeLang;
+
+  changeLang = function() {
+    return chrome.tabs.getSelected(null, function(tab) {
+      chrome.tabs.sendMessage(tab.id, {
+        type: "changeLang",
+        color: '#ccc'
+      });
+      return chrome.browserAction.setBadgeText({
+        text: "Active!"
+      });
+    });
+  };
+
+  chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    switch (request.type) {
+      case 'changeLang':
+        return changeLang();
+    }
+  });
+
+}).call(this);
