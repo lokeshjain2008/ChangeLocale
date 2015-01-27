@@ -7,19 +7,19 @@
   "permissions": ["tabs"],	
   "browser_action": {
     "default_icon": "images/icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "html/popup.html"
   },
   "externally_connectable": {
     "matches": ["*://*/*"]
   },
   "background": {
-          "scripts": ["background.js"],
+          "scripts": ["js/background.js"],
           "persistent": false
       },
  "devtools_page": "devtools.html",
   "content_scripts": [{
 	  "matches": ["*://*/*"],
-	  "js": ["angular.js","contentScript.js"]
+	  "js": ["js_lib/angular.js","js/contentScript.js"]
   	
   }],
   "permissions": [
@@ -27,6 +27,6 @@
     
   ],
   
-   "web_accessible_resources": ["myscript.js"]
+   "web_accessible_resources": ["js/myscript.js"]
   
 }

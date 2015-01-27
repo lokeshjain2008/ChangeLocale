@@ -39,7 +39,7 @@
 		//console.log(el);
 		//-- MAGIC CODE -- //
 		var new_script =  document.createElement('script');
-		new_script.src = chrome.extension.getURL('myscript.js');
+		new_script.src = chrome.extension.getURL('js/myscript.js');
 		document.head.appendChild(new_script);
 		// This garbage for the current code
 		/*
