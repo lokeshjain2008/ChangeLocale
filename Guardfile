@@ -26,7 +26,7 @@
 coffeescript_options = {
   input: 'coffee',
   output: 'js',
-  patterns: [%r{^js/(.+\.(?:coffee|coffee\.md|litcoffee))$}]
+  patterns: [%r{^coffee/(.+\.(?:coffee|coffee\.md|litcoffee))$}]
 }
 
 guard 'coffeescript', coffeescript_options do
