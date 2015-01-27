@@ -21,7 +21,7 @@ if window.angular
 		
 		#Create container for the select element
 		CLcontainer = "<divclass'form-element'>
-			<div id='CLSelectToggle' data-target='CLSelectDiv' style='color:blue;cursor:pointer;'>Show/hide</div>
+			<h3 id='CLSelectToggle' data-target='CLSelectDiv' class='text-success' style='ursor:pointer;'>Show/hide</h3>
 			<div id='CLSelectDiv'> #{select_options} </div>			
 			"
 		#finally add it the document page
@@ -29,7 +29,7 @@ if window.angular
 		CLLink.id = 'CLLinkDiv'
 		CLLink.style.position  = 'fixed'
 		CLLink.style.zIndex = '9999'
-		CLLink.style.top = '70px'
+		CLLink.style.top = '50px'
 		CLLink.style.right = '10px'
 		CLLink.style.textAlign = 'right'
 		document.body.appendChild(CLLink)

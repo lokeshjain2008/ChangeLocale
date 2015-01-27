@@ -19,7 +19,7 @@
         select_options += "<option value=\"" + lang + "\">" + lang + "</option>";
       }
       select_options += "</select>";
-      CLcontainer = "<divclass'form-element'> <div id='CLSelectToggle' data-target='CLSelectDiv' style='color:blue;cursor:pointer;'>Show/hide</div> <div id='CLSelectDiv'> " + select_options + " </div>";
+      CLcontainer = "<divclass'form-element'> <h3 id='CLSelectToggle' data-target='CLSelectDiv' class='text-success' style='ursor:pointer;'>Show/hide</h3> <div id='CLSelectDiv'> " + select_options + " </div>";
       CLLink = document.createElement('div');
       CLLink.id = 'CLLinkDiv';
       CLLink.style.position = 'fixed';
