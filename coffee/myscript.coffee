@@ -1,3 +1,22 @@
+#Functions related to drag and drop functionality.
+drag_start = (event)->
+	el = event.target
+	event.dataTransfer.setData "text/plain",
+	    											(el.offsetLeft - event.clientX) + ',' + (el.offsetTop - event.clientY)
+
+drag_over = (e)->
+	e.preventDefault()
+	false
+
+drop = (e)->
+	offset = event.dataTransfer.getData("text/plain").split(',')
+	dm = document.querySelector('#CLLinkDiv')
+	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px'
+	dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px'
+	e.preventDefault()
+	false
+			
+
 if window.angular
 	angular_element = angular.element(".ng-scope:first")
 	translate_service =  angular_element.injector().get('$translate')
@@ -21,7 +40,7 @@ if window.angular
 		
 		#Create container for the select element
 		CLcontainer = "<divclass'form-element'>
-			<h3 id='CLSelectToggle' data-target='CLSelectDiv' class='text-success' style='ursor:pointer;'>Show/hide</h3>
+			<h3 id='CLSelectToggle' data-target='CLSelectDiv' class='text-success' style='cursor:pointer;'>+/-</h3>
 			<div id='CLSelectDiv'> #{select_options} </div>			
 			"
 		#finally add it the document page
@@ -30,8 +49,9 @@ if window.angular
 		CLLink.style.position  = 'fixed'
 		CLLink.style.zIndex = '9999'
 		CLLink.style.top = '50px'
-		CLLink.style.right = '10px'
-		CLLink.style.textAlign = 'right'
+		CLLink.style.left = '80%'
+		CLLink.draggable = 'true'
+		CLLink.style.boxShadow = '0px 0px 6px 3px seagreen'
 		document.body.appendChild(CLLink)
 		CLLinked = document.querySelector('#CLLinkDiv')
 		CLLinked.innerHTML = CLcontainer
@@ -42,6 +62,12 @@ if window.angular
 			
 		document.querySelector("#CLSelect").addEventListener 'change', ->
 			changeLanguage @.value
+			
+		#Add Drag and Drop functionality to the extension handle
+		CLLink.addEventListener 'dragstart', drag_start, false
+		document.body.addEventListener 'dragover', drag_over, false
+		document.body.addEventListener 'drop', drop, false
+		
 	
 else
 	alert "No angular found on the page."
