@@ -7,7 +7,7 @@
   "permissions": ["tabs"],	
   "browser_action": {
     "default_icon": "images/icon.png",
-    "default_popup": "html/popup.html"
+    "default_title": "Change language on Angular translate page"
   },
   "externally_connectable": {
     "matches": ["*://*/*"]
