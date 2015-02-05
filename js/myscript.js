@@ -34,6 +34,9 @@
     };
     if (window.I18n.translations) {
       langs = Object.keys(window.I18n.translations);
+      if (document.querySelector("#CLLinkDiv")) {
+        return;
+      }
       select_options = '<select id="CLSelect" class="text-info">';
       for (_i = 0, _len = langs.length; _i < _len; _i++) {
         lang = langs[_i];
