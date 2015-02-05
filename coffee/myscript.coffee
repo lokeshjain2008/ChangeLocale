@@ -30,6 +30,9 @@ if window.angular
 	if window.I18n.translations
 		langs = Object.keys(window.I18n.translations)
 		#prepare select options on the document Fragment
+		
+		#Check if we have already added the element on the page if yes then make it visible.
+		return if document.querySelector("#CLLinkDiv")
 		 
 		#select_options = document.createDocumentFragment()
 		# Dropped the idea to make it simple still don't make repainting heavy
