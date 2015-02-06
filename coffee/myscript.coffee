@@ -14,6 +14,9 @@ drop = (e)->
 	dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px'
 	dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px'
 	e.preventDefault()
+	# save position for the session use put into localStorage..
+	localStorage.setItem('cl_elem_left', dm.style.left)
+	localStorage.setItem('cl_elem_top', dm.style.top) 
 	false
 			
 
@@ -32,10 +35,12 @@ if window.angular
 		#prepare select options on the document Fragment
 		
 		#Check if we have already added the element on the page if yes then make it visible.
-		return if document.querySelector("#CLLinkDiv")
+		if document.querySelector("#CLLinkDiv")
+			document.querySelector('#CLSelectToggle').click()
+			return false
 		 
 		#select_options = document.createDocumentFragment()
-		# Dropped the idea to make it simple still don't make repainting heavy
+		#Dropped the idea to make it simple still don't make repainting heavy
 		select_options = '<select id="CLSelect" class="text-info">'
 		for lang in langs
 			select_options += "<option value=\"#{lang}\">#{lang}</option>" 
@@ -51,8 +56,8 @@ if window.angular
 		CLLink.id = 'CLLinkDiv'
 		CLLink.style.position  = 'fixed'
 		CLLink.style.zIndex = '9999'
-		CLLink.style.top = '50px'
-		CLLink.style.left = '80%'
+		CLLink.style.top = localStorage.cl_elem_top || '50px'
+		CLLink.style.left = localStorage.cl_elem_left || '80%'
 		CLLink.draggable = 'true'
 		CLLink.style.boxShadow = '0px 0px 6px 3px seagreen'
 		document.body.appendChild(CLLink)

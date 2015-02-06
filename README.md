@@ -16,5 +16,6 @@ ChangeLogs
 2. version 1.1 : removed  unnecessary code and structure the files.
 3. version 1.2 : Added coffeescript support to make it more readable.
 4. version 1.3 : improved UI and Drag and drop functionality.
+5. version 1.3.1: Don't add the element if that is already added on the page.
 
 

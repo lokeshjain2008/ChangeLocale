@@ -19,6 +19,8 @@
     dm.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
     dm.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
     e.preventDefault();
+    localStorage.setItem('cl_elem_left', dm.style.left);
+    localStorage.setItem('cl_elem_top', dm.style.top);
     return false;
   };
 
@@ -35,7 +37,8 @@
     if (window.I18n.translations) {
       langs = Object.keys(window.I18n.translations);
       if (document.querySelector("#CLLinkDiv")) {
-        return;
+        document.querySelector('#CLSelectToggle').click();
+        return false;
       }
       select_options = '<select id="CLSelect" class="text-info">';
       for (_i = 0, _len = langs.length; _i < _len; _i++) {
@@ -48,8 +51,8 @@
       CLLink.id = 'CLLinkDiv';
       CLLink.style.position = 'fixed';
       CLLink.style.zIndex = '9999';
-      CLLink.style.top = '50px';
-      CLLink.style.left = '80%';
+      CLLink.style.top = localStorage.cl_elem_top || '50px';
+      CLLink.style.left = localStorage.cl_elem_left || '80%';
       CLLink.draggable = 'true';
       CLLink.style.boxShadow = '0px 0px 6px 3px seagreen';
       document.body.appendChild(CLLink);
