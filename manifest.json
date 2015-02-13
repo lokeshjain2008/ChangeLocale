@@ -3,7 +3,7 @@
 
   "name": "changeLocale",
   "description": "This extension changes langauge for the angular-translate project..",
-  "version": "2.1",
+  "version": "2.2",
   "permissions": ["tabs"],	
   "browser_action": {
     "default_icon": "images/icon.png",
