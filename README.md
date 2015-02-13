@@ -6,9 +6,12 @@ ChromeExtension to change language using chrome [extension](https://chrome.googl
 2. App should use Angular-translate for the translation.
 
 ### Todos
-1. For the 1.4 version
+1. For the version 2.2
+  1. Add remove fucntionality for the created div element.
+
+2. For the 1.4 version
   1. Add remove fucntionality for the created dropdown list.
-  2. Remember user preferred location for the dropdow.
+  2. ~~Remember user preferred location for the dropdow.~~
 
 ChangeLogs
 ====
@@ -17,5 +20,6 @@ ChangeLogs
 3. version 1.2 : Added coffeescript support to make it more readable.
 4. version 1.3 : improved UI and Drag and drop functionality.
 5. version 1.3.1: Don't add the element if that is already added on the page.
+6. version 2.1 : Added functionality to remember user locatin and some UI enhancement.
 
 
